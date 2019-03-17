@@ -14,10 +14,9 @@ def dictionary
 end
 
 def word_substituter(tweet)
-  tweet_array = tweet.split
-  tweet_array.each do |word|
+  tweet.split.collect do |word|
     if dictionary.keys.include? word.downcase
-      tweet_array[tweet_array.index(word)] = dictionary[word.downcase]
+      word = dictionary[word.downcase]
     end
   end
   tweet_array.join(" ")
